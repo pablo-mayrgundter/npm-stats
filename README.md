@@ -6,7 +6,7 @@ Find the number and size of deps in a node_modules folder.
 # In the project you're profiling...
 In the project you're profiling, with a fully installed node_modules directory, create a deps.mjs using *npm ls*, then copy it back to this repo:
 ```
-> npm ls --all --json > deps.mjs
+> npm ls --all --json > pkgDeps.mjs
 ```
 
 Create a size lookup table using this shell command:
@@ -17,11 +17,11 @@ awk 'BEGIN{print "const sizes = {" } {print "\"" $2 "\":" $1 ","} END {print "};
 
 # Back in this repo...
 
-Copy the *deps.mjs* and *sizes.mjs* from your target project back to this repo.
+Copy the *pkgDeps.mjs* and *sizes.mjs* from your target project back to this repo.
 
 Then up the stats page which will load them and shows stats in the JS Console:
 ```
-> cp $MY_NODE_PROJECT/{deps,sizes}.mjs .
+> cp $MY_NODE_PROJECT/{pkgDeps,sizes}.mjs .
 > npx http-server
 Starting up http-serve for ./
 Available on:
