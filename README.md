@@ -6,7 +6,7 @@ Find the number and size of deps in a node_modules folder.
 # In the project you're profiling...
 In the project you're profiling, with a fully installed node_modules directory, create a deps.mjs using *npm ls*, then copy it back to this repo:
 ```
-> npm ls --all --json > pkgDeps.mjs
+> (echo -n 'const pkgDeps = ' ; npm ls --all --json ; echo 'export default pkgDeps;') > pkgDeps.mjs
 ```
 
 Create a size lookup table using this shell command:
